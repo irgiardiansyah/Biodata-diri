@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Biodata Irgi Ardiansyah</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background: url('https://media2.giphy.com/media/sC37EpvhNQ2GhXGwdc/giphy.gif?cid=6c09b95230wubldz54s3fdq286iak9e9j09sv9931sfsaur1&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    .rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .drop {
+      position: absolute;
+      width: 2px;
+      height: 15px;
+      background: rgba(255, 255, 255, 0.6);
+      bottom: 100%;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .photo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .photo img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #555;
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    .biodata {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      row-gap: 10px;
+      font-size: 14px;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .value {
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Efek hujan -->
+  <div class="rain" id="rain"></div>
+
+  <div class="container">
+    <div class="photo">
+      <img src="foto.jpg" alt="Foto Irgi Ardiansyah">
+    </div>
+    <h1>Biodata Diri</h1>
+    <div class="biodata">
+      <div class="label">Nama Lengkap:</div><div class="value">Irgi Ardiansyah</div>
+      <div class="label">Tempat, Tanggal Lahir:</div><div class="value">Bandung, 10 Januari 2007</div>
+      <div class="label">Jenis Kelamin:</div><div class="value">Laki-laki</div>
+      <div class="label">Email:</div><div class="value">irgiardiansyah00@gmail.com</div>
+      <div class="label">No. Telepon:</div><div class="value">0857-7346-60486</div>
+      <div class="label">Hobi:</div><div class="value">Olahraga</div>
+    </div>
+  </div>
+
+  <!-- Script hujan -->
+  <script>
+    const rain = document.getElementById('rain');
+    for (let i = 0; i < 120; i++) {
+      const drop = document.createElement('div');
+      drop.classList.add('drop');
+      drop.style.left = Math.random() * 100 + 'vw';
+      drop.style.animationDuration = (0.5 + Math.random()) + 's';
+      drop.style.animationDelay = Math.random() * 5 + 's';
+      rain.appendChild(drop);
+    }
+  </script>
+
+  <!-- Musik latar -->
+  <audio autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+</body>
+</html>
